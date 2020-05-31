@@ -1,0 +1,23 @@
+.buttonClick {
+    background: rgb(109, 255, 206);
+    border-radius: 30px 10px 30px 10px;
+    color: white;
+}
+
+.button {
+    background: rgb(109, 255, 206);
+    border-radius: 30px 10px 30px 10px;
+    color: white;
+}
+
+.activeButton {
+    background: rgb(109, 255, 206);
+    border-radius: 30px 10px 30px 10px;
+    color: white;
+}
+ h1 {
+     font-size: large;
+     font-family: cursive;
+     font-style: bold;
+ }
+

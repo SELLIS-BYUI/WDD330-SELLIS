@@ -3,11 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="toDO.css">
+    <title>To Do App challenge</title>
 </head>
-<body>
-    <h1>To-Do App</h1>
-    <input id="taskToDo" type="text">
-    <button onclick=></button>
+<body class="mainContainer">
+    <h1>To-Do app</h1>
+        <div>
+            <ul class="list">
+                
+            </ul>
+        </div>
+    <form class="formInput">
+        <input type="text" class="inputValue" placeholder="Your tasks...">
+        <button type="submit" class="buttonClick">Submit</button>
+    </form>
+    <div class="filterContainer">
+        <button class="activeButton">All</button>
+        <button class="button">Active</button>
+        <button class="button">Completed</button>
+      </div>
+      <div class="filterItemContainer">
+        <div class="filterCompletedDiv"></div>
+        <div class="filterActiveDiv"></div>
+      </div>
+    <script src="toDo.js"></script>
 </body>
 </html>
