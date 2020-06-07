@@ -19,5 +19,14 @@
      font-size: large;
      font-family: cursive;
      font-style: bold;
+     text-align: center;
+ }
+
+ .container {
+     width: 400px;
+     height: 400px;
+     margin: 0 auto;
+     background-color: lightblue;
+     
  }
 

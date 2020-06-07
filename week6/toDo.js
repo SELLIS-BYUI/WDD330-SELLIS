@@ -50,7 +50,7 @@ const displayToDo = () => {
     var arrayOfKeys = Object.keys(localStorage);
 
     for (var i = 0; i < arrayOfKeys.length; i++){
-        var key = arrayOfKeys[i];
+       var key = arrayOfKeys[i];
        var item = JSON.parse(localStorage.getItem(key)); 
        var k = key.slice(2, 3); 
        var listItem = document.createElement("LI"); // parent
