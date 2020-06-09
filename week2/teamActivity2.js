@@ -1,29 +1,35 @@
 var clickBtn = document.getElementById("click");
-clickBtn.addEventListener("click", getNum1);
-clickBtn.addEventListener("click", getNumTwoAdd);
+clickBtn.addEventListener("click", getNumOne);
+clickBtn.addEventListener("click", getNumTwo);
+clickBtn.addEventListener("click", getTotal);
 
-
-function getNum1() {
-    var num1 = document.getElementById('input1').value;
-    document.getElementById('outPut').innerHtml = num1;
-}
-function getNumTwoAdd() {
-    var num1 = document.getElementById('input1').value;
-    var num2 = document.getElementById('input2').value;
+function getNumOne() {
+    var numberOne = document.getElementById('inputOne').value;
+    var numberTwo = document.getElementById('inputTwo').value;
+    document.getElementById('outPutOne').innerHTML = 
+    `First Number: ${numberOne}, <br>Second Number: ${numberTwo}`;
     
-    var numCheck1 = parseInt(num1);
-    var numCheck2 = parseInt(num2);
+};
 
-    var total = 0;
-
-    if(numCheck1 !== NaN && numCheck2 !== NaN){
-        for (var i = 0; i <= numCheck2; i++) {
-            total += i;
-            document.getElementById("outPut2").innerHTML = total;
+function getNumTwo() {
+    var numberTwo = document.getElementById('inputTwo').value;
+    var getSecondNumber = parseInt(numberTwo);
+    var numTwoSumOf = 0;
+    if(getSecondNumber !== NaN){
+        for (var i = 0; i < getSecondNumber; i++) {
+            numTwoSumOf += i;
         }
-    };
-    var grandTotal = numCheck1 + numCheck2;
-    document.getElementById('total').innerHTML = grandTotal;
-       
-}
+    }
+    document.getElementById('outPutTwo').innerHTML = 
+    `Add up from 1 till inputTwo: ${numTwoSumOf}`;
+};
 
+function getTotal() {
+    var getNumOne = document.getElementById('inputOne').value;
+    var getNumTwo = document.getElementById('inputTwo').value;
+    var numOneConvert = parseInt(getNumOne);
+    var numTwoConvert = parseInt(getNumTwo);
+    var grandTotal = numOneConvert + numTwoConvert;
+    document.getElementById('sumTotal').innerHTML = 
+    `Grand Total of Number one and two: ${grandTotal}`;
+};
