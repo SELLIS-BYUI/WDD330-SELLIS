@@ -1,5 +1,5 @@
 
-      // Get your shorts on - this is an array workout!
+    // Get your shorts on - this is an array workout!
       // ## Array Cardio Day 1
 
       // Some data we can work with
@@ -65,18 +65,46 @@
 
       // Array.prototype.filter()
       // 1. Filter the list of inventors for those who were born in the 1500's
-
+      const inventorsYearOfBirth = inventors.filter(function(personSearch) {
+        if ((personSearch.year >= '1500') && (personSearch.year <= '1600')){
+            return true;
+        }
+      });
+      console.table(inventorsYearOfBirth);
       // Array.prototype.map()
       // 2. Give us an array of the inventors' first and last names
-
+      const inventorsFullName = inventors.map(function(personName) {
+        let personFN = [personName.first];
+        let personLN = [personName.last];
+        let personFullName = personFN + " " + personLN;
+        return personFullName;
+      });
+      console.table(inventorsFullName);
       // Array.prototype.sort()
       // 3. Sort the inventors by birthdate, oldest to youngest
-
+      const inventorsBDays = inventors.sort(function(a, b) {
+       let sortedBDay = b.year - a.year;
+       return sortedBDay;
+      }); 
+      console.table(inventorsBDays);
       // Array.prototype.reduce()
       // 4. How many years did all the inventors live?
-
+      const inventorsTimeline = inventors.reduce(function(personLife, person) {
+        let personBirthDate = person.year;
+        let personDeathDate = person.passed;
+        return personLife + (personDeathDate - personBirthDate);
+      }, 0);
+      console.log(inventorsTimeline);
       // 5. Sort the inventors by years lived
-
+      const inventorTimeLine = inventors.sort(function(personB, personD) {
+        let personsBirth = personB.year - personB.passed;
+        let personsDeath = personD.year - personD.passed;
+        if(personsBirth < personsDeath) {
+          return -1
+        }
+        return 1
+      });
+      console.table(inventorTimeLine);
       // 6. create a list of Boulevards in Paris that contain 'de' anywhere in the name
       // https://en.wikipedia.org/wiki/Category:Boulevards_in_Paris
       // goto the link above and open the console. Paste the following two lines in.  That will create a list of links in memory that you can reference through the console. Use that list to finish the problem.
