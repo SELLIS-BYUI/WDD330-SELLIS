@@ -1,5 +1,5 @@
 let nextBTN = document.querySelector('#nextBTN');
-let prevBTN = document.querySelector('#prevBTN')
+let prevBTN = document.querySelector('#prevBTN');
 nextBTN.addEventListener('click', navigation);
 prevBTN.addEventListener('click', navigation);
 let next, previous;
@@ -29,7 +29,7 @@ fetch('https://pokeapi.co/api/v2/pokemon/')
                    createListItems.innerHTML += `<li class="pokeAbilities">${result.name}</li>`; 
                 });
                 next = pokeDex.next;
-                previous = pokeDex.previous;
+                
             })
         };
     if(previous){
@@ -41,7 +41,6 @@ fetch('https://pokeapi.co/api/v2/pokemon/')
                 pokeDex.results.forEach(result => {
                    createListItems.innerHTML += `<li class="pokeAbilities">${result.name}</li>`; 
                 });
-                next = pokeDex.next;
                 previous = pokeDex.previous;
             })
         };

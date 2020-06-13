@@ -1,0 +1,23 @@
+#newList {
+    display: flex;
+    flex-wrap: wrap;
+}
+.pokeAbilities {
+    width: 35%;
+    border-style: outset;
+    border: 2px soild crimson;
+    border-radius: 12px;
+    background-color: lightcoral;
+    padding-left: 20px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    list-style-type: none;
+}
+#prevBTN {
+    margin-left: 125px;
+    margin-bottom: 5px;
+}
+#nextBTN {
+    margin-right: 125px;
+    margin-bottom: 5px;
+}

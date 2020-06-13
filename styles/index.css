@@ -17,12 +17,13 @@ nav ul li {
     display: none;
 }
 
-nav ul li a {
+nav ul a {
     border: solid black;
-    background-color: grey;
+    background-color: black;
     display: block;
     padding: 10px;
     text-decoration: none;
+    color: grey
 }
 
 /* CLASS selectors */
