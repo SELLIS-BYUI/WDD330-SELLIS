@@ -1,6 +1,6 @@
 //Code provided by team activity directions
 export const getJsonUrl = (url) => {
-     jsonData = fetch(url)
+    const jsonData = fetch(url)
     .then(function (response){
         if (!response.ok) {
             throw Error(response.statusText);

@@ -32,9 +32,10 @@ export default class QuakesController {
     if (this.position.lat === 0) {
       try {
         // try to get the position using getLocation()
-        
-        // if we get the location back then set the latitude and longitude into this.position
-        
+        let positionDetails = await getLocation();
+        // // if we get the location back then set the latitude and longitude into this.position
+        this.position.lat = positionDetails.coords.latitude;
+        this.position.lon = positionDetails.coords.longitude;
       } catch (error) {
         console.log(error);
       }
@@ -62,6 +63,5 @@ export default class QuakesController {
   async getQuakeDetails(quakeId) {
     /* get the details for the quakeId provided from the model, then send them to the 
     view to be displayed */
-   
   }
 }
