@@ -1,4 +1,4 @@
-import { getJsonUrl } from './utilities.js';
+import { getJsonUrl, getLocation } from './utilities.js';
 // Quake Model
 export default class Quake {
   constructor() {
