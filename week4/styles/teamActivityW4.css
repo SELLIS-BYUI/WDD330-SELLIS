@@ -1,0 +1,39 @@
+ .gameBoard {
+  display: grid;
+  grid-template-columns: 80px 80px 80px;
+  grid-template-rows: 80px 80px 80px;
+  justify-content: center;
+}
+
+.box {
+  border: 1px solid;
+  font-size: 4em;
+  text-align: center;
+}
+
+.newGameBtn {
+  margin: 12px;
+  margin-left: 140px;
+  padding: 5px;
+  background-color: olivedrab;
+  color: white;
+}
+
+.notesLink {
+  margin:3px;
+  padding: 5px;
+  margin-left: 130px;
+  background-color: olivedrab;
+}
+
+.linkStyling {
+  color: white;
+  text-decoration: none;
+}
+
+header, footer {
+  text-align: center;
+  font-size: large;
+  font-style: normal;
+  margin: 15px;
+}

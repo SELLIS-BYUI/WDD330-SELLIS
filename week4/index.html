@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../styles/index.css">
-    <title>Document</title>
+    <link rel="stylesheet" href="styles/teamActivityW4.css">
+    <title>Week 4 Team Activity</title>
 </head>
 <body>
     <nav>
@@ -25,31 +26,28 @@
             <li><a href="../week13">Week 13</a></li>
         </ul>
     </nav>
-    <header>Week 4</header>
-    <main>
-        <h2>Notes:</h2>
-        <p> "This function uses the event.preventDefault() method to stop the<br> 
-            form from being submitted. We then create a local variable called<br> 
-            hero and assign it to an empty object literal. We’ll then augment<br> 
-            this object with properties from the form, although we only have<br> 
-            the name property at the moment. Once the hero object is created,<br> 
-            it would probably be returned by the function then used elsewhere<br> 
-            in the rest of the program. Since this is just for demonstration<br> 
-            purposes, we simple use the JSON.stringify() method to convert the<br> 
-            hero object into a JSON string and display it in an alert dialog."<br>
-            (JavaScript: Novice to Ninja, 2nd Edition).</p><br>
-        <h3>Code examples:</h3>
-        <p>function makeHero(event) {
-            event.preventDefault(); // prevent the form from being submitted
-            const hero = {}; // create an empty object
-            hero.name = form.heroName.value; // create a name property based on the input field's value
-            alert(JSON.stringify(hero)); // convert object to JSON string and display in alert dialog
-            return hero;
-        }</p><br>
-        <h3>Team Activity:</h3>     
-        <p>This week I was the driver for Team Activity 4</p>
+<header>Week 4: Tic Tac Toe Game</header>
+    <main>    
+        <p>Note: This week I was the driver for Team Activity 4</p>
+        <button class="notesLink">
+            <a class="linkStyling" href="../htmls/notesWeek4.html">Notes Link</a>
+        </button>
     </main>
+    <div class="gameBoard">
+        <div id="1" class="box"></div>
+        <div id="2" class="box"></div>
+        <div id="3" class="box"></div>
+        <div id="4" class="box"></div>
+        <div id="5" class="box"></div>
+        <div id="6" class="box"></div>
+        <div id="7" class="box"></div>
+        <div id="8" class="box"></div>
+        <div id="9" class="box"></div>
+    </div>
+    <button class="newGameBtn">New Game</button>
+
     <footer>&copy 2020 | Portfolio | Stephen Ellis</footer>
     <script src="../scripts/main.js"></script>
+    <script src="scripts/teamActivityW4.js"></script>
 </body>
 </html>
