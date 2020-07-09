@@ -1,9 +1,9 @@
 import { Pokemon } from './pokeClassesW13.js';
 /* Storing the pokemon characteristics and flavor text into objects. Then 
 storing into an array making it an array of objects. */
-var pokemansList = new Array();
+let pokemansList = new Array();
 // So that we have a way to paginate
-var page = 0;
+let page = 0;
 const prevBtn = document.querySelector('#previousBtn');
 const nextBtn = document.querySelector('#nextBtn');
 
@@ -68,15 +68,15 @@ const paginationOfList = async () => {
 }
 
 nextBtn.addEventListener('click', nextPageOfPokes)
-function nextPageOfPokes() {
-    const morePokes = document.querySelector('pokedexList');
-    if (page == pokemansList.length - 10) {
-        page = 0;
-    } 
-    else page+=10;
-    pokemansList.innerHTML = '';
-    for (let i = page; i < page + 10; i++) {
-        morePokes.appendChild(pokemansList[i]);
-    }
+async function nextPageOfPokes() {
+    // const result = await getJsonPokemonData();
+    // if (page == pokemansList.length - 10) {
+    //     page = 0;
+    // } 
+    // else page+=10;
+    // pokedexList.innerHTML = '';
+    // for (let i = page; i < page + 10; i++) {
+    //     pokedexList.appendChild(pokemansList[i]);
+    // }
 }
 paginationOfList();
