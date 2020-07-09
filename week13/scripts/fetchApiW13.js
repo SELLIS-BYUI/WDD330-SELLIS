@@ -2,6 +2,10 @@ import { Pokemon } from './pokeClassesW13.js';
 /* Storing the pokemon characteristics and flavor text into objects. Then 
 storing into an array making it an array of objects. */
 var pokemansList = new Array();
+// So that we have a way to paginate
+var page = 0;
+const prevBtn = document.querySelector('#previousBtn');
+const nextBtn = document.querySelector('#nextBtn');
 
 const getJsonPokemonData = () => {
     //getting all 251 pokemon and pokemonData
@@ -46,12 +50,12 @@ const getJsonPokemonData = () => {
    }); 
 }
 
-// Will allow have 15 per a page
+// Will allow have 9 per a page
 const paginationOfList = async () => {
     const result = await getJsonPokemonData();
     let pokedexList = document.getElementById("pokedexList");
 
-    for (var i = 0; i < 151; i++ ) {
+    for (var i = 0; i < page + 9; i++) {
         let pokes = document.createElement("LI");
         pokes.setAttribute('class', 'stylePokemonListItem');
         
@@ -60,8 +64,19 @@ const paginationOfList = async () => {
         <p class="PokeTypes">Type: ${pokemansList[i].types}</p>`;
 
         pokedexList.appendChild(pokes);
-
     }
 }
 
+nextBtn.addEventListener('click', nextPageOfPokes)
+function nextPageOfPokes() {
+    const morePokes = document.querySelector('pokedexList');
+    if (page == pokemansList.length - 10) {
+        page = 0;
+    } 
+    else page+=10;
+    pokemansList.innerHTML = '';
+    for (let i = page; i < page + 10; i++) {
+        morePokes.appendChild(pokemansList[i]);
+    }
+}
 paginationOfList();
