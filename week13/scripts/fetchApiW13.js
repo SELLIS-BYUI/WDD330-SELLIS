@@ -4,12 +4,14 @@ storing into an array making it an array of objects. */
 let pokemansList = new Array();
 // So that we have a way to paginate
 let page = 0;
+let startingPosition = 1;
 const prevBtn = document.querySelector('#previousBtn');
 const nextBtn = document.querySelector('#nextBtn');
 
-const getJsonPokemonData = () => {
+const getJsonPokemonData = (startingPosition) => {
+    pokemansList = [];
     //getting all 251 pokemon and pokemonData
-    for (let i = 1; i < 152; i++) {
+    for (let i = startingPosition; i < startingPosition + 15; i++) {
         /* URLS one for getting all 251 pokemon with name, id, sprite
         and the second for getting pokemon flavor/descript info and the
         game their from */
@@ -46,16 +48,17 @@ const getJsonPokemonData = () => {
    return new Promise(fetch => {
        setTimeout(() => {
            fetch('fetched');
-       }, 4000);
+       }, 2000);
    }); 
 }
 
 // Will allow have 9 per a page
 const paginationOfList = async () => {
-    const result = await getJsonPokemonData();
+    await getJsonPokemonData(startingPosition);
     let pokedexList = document.getElementById("pokedexList");
+    pokedexList.innerHTML = '';
 
-    for (var i = 0; i < page + 9; i++) {
+    for (var i = 0; i < page + 15; i++) {
         let pokes = document.createElement("LI");
         pokes.setAttribute('class', 'stylePokemonListItem');
         
@@ -67,16 +70,18 @@ const paginationOfList = async () => {
     }
 }
 
+// loads the next page or pokemon
 nextBtn.addEventListener('click', nextPageOfPokes)
 async function nextPageOfPokes() {
-    // const result = await getJsonPokemonData();
-    // if (page == pokemansList.length - 10) {
-    //     page = 0;
-    // } 
-    // else page+=10;
-    // pokedexList.innerHTML = '';
-    // for (let i = page; i < page + 10; i++) {
-    //     pokedexList.appendChild(pokemansList[i]);
-    // }
-}
-paginationOfList();
+    startingPosition += 15;
+    paginationOfList(startingPosition);}
+
+// loads the previous page of pokemon
+prevBtn.addEventListener('click', prevPageOfPokes)
+async function prevPageOfPokes() {
+    startingPosition -= 15;
+    paginationOfList(startingPosition);}
+
+paginationOfList(startingPosition);
+
+
