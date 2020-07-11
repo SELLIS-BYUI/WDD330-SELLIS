@@ -49,16 +49,21 @@ button {
     position: relative;
     padding: 10px;
     margin: 5px;
-    width: 118px;
+    width: 100px;
     background-color: #464646;
     box-shadow: 2px 3px 10px;
 }
 
-footer, header{
+header {
+    background-color: #6EA4BB;
+    color: white;
+    padding: 8px;
+    text-align: center;
+}
+footer {
     background-color: black;
     color: white;
-    padding-top: 8px;
-    padding-left: 0px;
-    padding-right: 0px;
+    padding: 8px;
+    text-align: center;
 
 }

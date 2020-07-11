@@ -7,9 +7,3 @@ export class Pokemon { // For pokemon charcteristics and appearence
         this.pokemonText = pokemonText;
     }
 }
-
-// export class PokemonFlavorText { // For pokemon info and game origin
-//     constructor(pokemonText) {
-//         this.flavorText = pokemonText;
-//     }
-// }
