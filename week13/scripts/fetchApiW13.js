@@ -9,6 +9,7 @@ let startingPosition = 1;
 const prevBtn = document.querySelector('#previousBtn');
 const nextBtn = document.querySelector('#nextBtn');
 
+
 const getJsonPokemonData = (startingPosition) => {
     pokemansList = [];
     // Getting all pokemon and pokemonData currently known
@@ -39,13 +40,17 @@ const getJsonPokemonData = (startingPosition) => {
             .then(responseNumTwo => responseNumTwo.json())
             .then(pokemonDataTwo => {
                 // Create a pokemon info like flavor text and game version for each pokemon
+                pokemonObject.captureRate = pokemonDataTwo.capture_rate;
+                pokemonObject.eggGroup = pokemonDataTwo.egg_groups[0].name;
                 pokemonObject.pokemonText = pokemonDataTwo.flavor_text_entries[0].flavor_text;
+                pokemonObject.pokeSpeciesDetail = pokemonDataTwo.genera[7].genus;
                 pokemansList.push(pokemonObject);
+                // Sorting the pokemon in order by there id
+                pokemansList.sort((a, b) => (a.id > b.id) ? 1 : -1);
             });
         }); 
     }
-    // Sorting the pokemon in order by there id
-    pokemansList.sort((a, b) => (a.id < b.id) ? 1 : -1);
+    
     return new Promise(fetch => {
         setTimeout(() => {
            fetch('fetched');
@@ -64,7 +69,6 @@ const paginationOfList = async () => {
     for (var i = 0; i < page + 15; i++) {
         let pokes = document.createElement("LI");
         pokes.setAttribute('class', 'stylePokemonListItem');
-        
         // Creating HTML and pokemon info
         pokes.innerHTML = `<img src="${pokemansList[i].sprite}">
         <h1 class="PokeName">${pokemansList[i].id}.${pokemansList[i].name}</h1>
@@ -84,7 +88,7 @@ const paginationOfList = async () => {
     startingPosition -= 15;
     paginationOfList(startingPosition);}
 
-nextBtn.addEventListener('click', nextPageOfPokes)
-prevBtn.addEventListener('click', prevPageOfPokes)
+nextBtn.addEventListener('click', nextPageOfPokes);
+prevBtn.addEventListener('click', prevPageOfPokes);
 paginationOfList(startingPosition);
-console.log(pokemansList);
+// console.log(pokemansList);
