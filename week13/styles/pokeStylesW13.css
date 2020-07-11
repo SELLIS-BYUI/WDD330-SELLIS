@@ -1,15 +1,18 @@
 #pokedexList {
     display: grid;
     grid-column-gap: 8px;
-    grid-row-gap: 8px;
+    grid-row-gap: 15px;
     grid-template-columns: auto auto auto;
     background-color: #3B4CCA;
     padding: 0px;
 }
 
 #btnContainer {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-column-gap: 4px;
+    grid-row-gap: 10px;
+    grid-template-columns: auto auto auto;
+    padding: 0px;
 } 
 
 ol {
