@@ -3,7 +3,7 @@
     grid-column-gap: 8px;
     grid-row-gap: 15px;
     grid-template-columns: auto auto auto;
-    background-color: #3B4CCA;
+    background-color: #FAE9B9;
     padding: 0px;
 }
 
@@ -32,7 +32,7 @@ ol {
 }
 
 body {
-    background-color: #3B4CCA;
+    background-color: #FAE9B9;
 }
 
 p, h1 {
@@ -46,25 +46,25 @@ img {
 }
 
 #previousBtn, #nextBtn, #favoritesBtn {
-    border: 1px #FFDE00;
+    border: 1px #7AC89E;
     border-radius: 60px;
     padding: 10px;
     margin: 5px;
     width: 107px;
-    background-color: #FFDE00;
+    background-color: #7AC89E;
     box-shadow: 2px 3px 10px;
 
 }
 
 footer{
-    background-color: #FF0000;
+    background-color: #8D6033;
     color: white;
     padding: 8px;
     text-align: center;
 }
 
 header{
-    background-color: #FF0000;
+    background-color: #8D6033;
     color: white;
     padding: 8px;
     text-align: center;
