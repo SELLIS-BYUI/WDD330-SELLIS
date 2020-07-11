@@ -47,14 +47,17 @@ img {
     height: "60";
 }
 
-#previousBtn, #nextBtn, #favoritesBtn {
-    border: 1px #0000;
+#previousBtn, #nextBtn, #favoritesLocalStorageBtn {
+    border: none;
     border-radius: 60px;
     padding: 10px;
     margin: 5px;
     margin-bottom: 30px;
     width: 107px;
-    background-color: #E6CE2B;
+    color: white;
+    outline: none;
+    background-color: #E13620;
+    background-image: linear-gradient(to right,#23AFCC, #E13620);
 }
 
 footer{

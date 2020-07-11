@@ -1,4 +1,5 @@
 import { Pokemon } from './pokeClassesW13.js';
+import { onclickPokeman } from './favoritePokeW13.js';
 /* Storing the pokemon characteristics and flavor text into objects. Then 
 storing into an array making it an array of objects. */
 let pokemansList = [];
@@ -8,7 +9,8 @@ let page = 0;
 let startingPosition = 1;
 const prevBtn = document.querySelector('#previousBtn');
 const nextBtn = document.querySelector('#nextBtn');
-
+// const hidePokeDetails = document.querySelector('#');
+// const revealPokeDetails = document.querySelector('#');
 
 const getJsonPokemonData = (startingPosition) => {
     pokemansList = [];
@@ -65,7 +67,7 @@ const paginationOfList = async () => {
 
     // Reseting
     pokedexList.innerHTML = '';
-
+    
     for (var i = 0; i < page + 15; i++) {
         let pokes = document.createElement("LI");
         pokes.setAttribute('class', 'stylePokemonListItem');
@@ -81,13 +83,17 @@ const paginationOfList = async () => {
 // loads the next page or pokemon
  const nextPageOfPokes = async () => {
     startingPosition += 15;
-    paginationOfList(startingPosition);}
+    paginationOfList(startingPosition);
+}
 
 // loads the previous page of pokemon
  const prevPageOfPokes = async () => {
     startingPosition -= 15;
-    paginationOfList(startingPosition);}
+    paginationOfList(startingPosition);
+}
 
+
+// hidePokeDetails.addEventListener('click', onclickPokeman);
 nextBtn.addEventListener('click', nextPageOfPokes);
 prevBtn.addEventListener('click', prevPageOfPokes);
 paginationOfList(startingPosition);
