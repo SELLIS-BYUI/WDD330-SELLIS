@@ -3,8 +3,10 @@
     grid-column-gap: 8px;
     grid-row-gap: 15px;
     grid-template-columns: auto auto auto;
-    background-color: #FAE9B9;
+    background-color: #FFFF;
     padding: 0px;
+    padding-top: 20px;
+    padding-bottom: 10px;
 }
 
 #btnContainer {
@@ -32,7 +34,7 @@ ol {
 }
 
 body {
-    background-color: #FAE9B9;
+    background-color: #FFFF;
 }
 
 p, h1 {
@@ -46,25 +48,26 @@ img {
 }
 
 #previousBtn, #nextBtn, #favoritesBtn {
-    border: 1px #7AC89E;
+    border: 1px #E6CE2B;
     border-radius: 60px;
     padding: 10px;
     margin: 5px;
+    margin-bottom: 30px;
     width: 107px;
-    background-color: #7AC89E;
+    background-color: #E6CE2B;
     box-shadow: 2px 3px 10px;
 
 }
 
 footer{
-    background-color: #8D6033;
+    background-color: #E13620;
     color: white;
     padding: 8px;
     text-align: center;
 }
 
 header{
-    background-color: #8D6033;
+    background-color: #E13620;
     color: white;
     padding: 8px;
     text-align: center;
