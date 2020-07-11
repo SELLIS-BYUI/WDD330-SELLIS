@@ -24,6 +24,7 @@ ol {
     font-size: 5px;
     text-align: center;
     color: black;
+    box-shadow: 2px 3px 10px;
     
 }
 
@@ -46,7 +47,7 @@ img {
     border-radius: 60px;
     padding: 10px;
     margin: 5px;
-    width: 100px;
+    width: 107px;
     background-color: #FFDE00;
     box-shadow: 2px 3px 10px;
 
