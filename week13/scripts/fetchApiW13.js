@@ -16,7 +16,7 @@ const nextBtn = document.querySelector('#nextBtn');
 const getJsonPokemonData = (startingPosition) => {
     pokemansList = [];
     // Getting all pokemon and pokemonData currently known
-    for (let i = startingPosition; i < startingPosition + 9; i++) {
+    for (let i = startingPosition; i < startingPosition + 12; i++) {
         /* URLS, one for getting all pokemon with name, id, sprite
         and the second for getting pokemon flavor/descript info and the
         game their from */
@@ -57,7 +57,7 @@ const getJsonPokemonData = (startingPosition) => {
     return new Promise(fetch => {
         setTimeout(() => {
            fetch('fetched');
-        }, 1500);
+        }, 1600);
    }); 
 }
 
@@ -69,7 +69,7 @@ const paginationOfList = async () => {
     // Reseting
     pokedexList.innerHTML = '';
 
-    for (var i = 0; i < page + 9; i++) {
+    for (var i = 0; i < page + 12; i++) {
         let pokes = document.createElement("LI");
         pokes.setAttribute('class', 'stylePokemonListItem');
         // Creating HTML and pokemon info
@@ -83,13 +83,13 @@ const paginationOfList = async () => {
 
 // loads the next page or pokemon
  const nextPageOfPokes = async () => {
-    startingPosition += 9;
+    startingPosition += 12;
     paginationOfList(startingPosition);
 }
 
 // loads the previous page of pokemon
  const prevPageOfPokes = async () => {
-    startingPosition -= 9;
+    startingPosition -= 12;
     paginationOfList(startingPosition);
 }
 
