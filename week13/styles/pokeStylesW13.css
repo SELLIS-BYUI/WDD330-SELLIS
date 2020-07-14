@@ -24,8 +24,7 @@
 #btnContainer {
     display: grid;
     grid-column-gap: 4px;
-    grid-row-gap: 10px;
-    grid-template-columns: auto auto auto;
+    grid-template-columns: auto auto auto auto;
     padding: 0px;
 } 
 
@@ -49,13 +48,12 @@ img {
     height: "60";
 }
 
-#previousBtn, #nextBtn, #favoritesLocalStorageBtn {
+#previousBtn, #nextBtn, #favoritesFilterBtn, #allFilterBtn {
     border: none;
     border-radius: 60px;
     padding: 10px;
-    margin: 5px;
     margin-bottom: 30px;
-    width: 107px;
+    width: 85px;
     color: white;
     outline: none;
     background-color: #E13620;

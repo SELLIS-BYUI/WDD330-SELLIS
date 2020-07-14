@@ -108,7 +108,7 @@ const pokemonModalDetails = (e) => {
 
 
     console.log(pokemonInfoNeeded);
-    console.log(pokemansList);
+    // console.log(pokemansList);
     modalInfo.appendChild(bodyInfo);
 }
 
@@ -130,5 +130,6 @@ revealPokeDetails.addEventListener('click', pokemonModalDetails);
 nextBtn.addEventListener('click', nextPageOfPokes);
 prevBtn.addEventListener('click', prevPageOfPokes);
 paginationOfList(startingPosition);
+console.log(pokemansList);
 
 
