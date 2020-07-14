@@ -1,0 +1,34 @@
+.gameBoard {
+    display: grid;
+    grid-template-columns: 80px 80px 80px;
+    grid-template-rows: 80px 80px 80px;
+    justify-content: center;
+}
+.box {
+    border: 1px solid;
+    font-size: 60px;
+    text-align: center;
+}
+
+#buttonGrid {
+    display: grid;
+    grid-template-columns: 119px 119px;
+    grid-template-rows: 30px 30px;
+    grid-column-gap: 5px;
+    justify-content: center;
+}
+
+.newGameBtn, .notesLink, .linkStyling {
+    text-decoration: none;
+    border: none;
+    border-radius: 60px;
+    color: white;
+    outline: none;
+    background-color: #E13620;
+    background-image: linear-gradient(to right,#23AFCC, #E13620);
+}
+
+.styleText {
+    text-align: center;
+}
+

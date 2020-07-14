@@ -1,14 +1,23 @@
-const firstPlayer = 'X';
-const secondPlayer = 'O'; 
-const playerChoice = firstPlayer;
-// What box we are clicking, then stored into an array
-const test = document.getElementById('#1');
+const controlBoard = document.querySelector('.gameBoard');
+const newGameBtn = document.querySelector('.newGameBtn');
 
-test.addEventListener('click', display);
+const firstPlayerActive = "x"
+const secondPlayerActive = "o"
+let player = firstPlayerActive;
 
-const display = (e) => {
-    console.log(Poke);
+const playerCheck = (e) => {
+    e.target.innerHTML = player;
+    player = (player === secondPlayerActive) ? firstPlayerActive : secondPlayerActive;
+    
 }
+const newGame = () => {
+    let i = 0;
+    while (i < controlBoard.children.length) {
+        controlBoard.children[i].innerHTML = "";
+        i++;
+    }
+    player = firstPlayerActive;
+  }
 
-display();
-
+newGameBtn.addEventListener('click', newGame);
+controlBoard.addEventListener('click', playerCheck);

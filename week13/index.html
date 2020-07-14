@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../styles/index.css">
     <link rel="stylesheet" href="styles/pokeStylesW13.css">
+    <link rel="stylesheet" href="styles/modalStyleW13.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Week 13 - Finale Challenge</title>
 </head>
-
 <body>
     <div class="container">
         <div class="navigationTop">
@@ -36,12 +36,17 @@
 <div id="stylePokemanList">
     <ol id="pokedexList"></ol>
 </div>
-<div>
-  
+<div class="pokedexEntryContainer" id="pokedexEntryContainer">
+  <div class="pokedexEntryHeader">
+    <div class="modal-title">Pokedex Entry: </div>
+    <button  id="closeBtn">x</button>
 </div>
+<div id="modalBody" class="modalBody"></div>
+</div>   
+<div id="backgroundModal"></div>
 <div id="btnContainer">
-  <button id="previousBtn">PREVIOUS</button>
-  <button id="favoritesLocalStorageBtn">FAVORITES</button>
+  <button id="previousBtn"> PREV</button>
+  <button id="favoritesLocalStorageBtn">FAV</button>
   <button id="nextBtn">NEXT</button>
 </div>
     <script src="./scripts/fetchApiW13.js" type="module"></script>
