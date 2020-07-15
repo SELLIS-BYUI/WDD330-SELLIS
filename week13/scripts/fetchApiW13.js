@@ -1,5 +1,4 @@
 import { Pokemon } from './pokeClassesW13.js';
-
 /* Storing the pokemon characteristics and flavor text into objects. Then 
 storing into an array making it an array of objects. */
 let pokemansList = [];
@@ -10,6 +9,7 @@ let startingPosition = 1;
 const prevBtn = document.querySelector('#previousBtn');
 const nextBtn = document.querySelector('#nextBtn');
 const revealPokeDetails = document.querySelector('#pokedexList');
+const closeModalBtn = document.querySelector('#closeBtn');
 
 const getJsonPokemonData = (startingPosition) => {
     pokemansList = [];
@@ -57,7 +57,7 @@ const getJsonPokemonData = (startingPosition) => {
     return new Promise(fetch => {
         setTimeout(() => {
            fetch('fetched');
-        }, 2000);
+        }, 2500);
    }); 
 }
 
@@ -83,6 +83,24 @@ const paginationOfList = async () => {
     } 
 }
 
+// Makes our modal and the modal background appear by adding active to class
+const revealModal = () => {
+    let addActiveToModal = document.querySelector('.pokedexEntryContainer');
+    let addActiveToBackground = document.querySelector('.backgroundModal');
+    
+    addActiveToModal.classList.add('class', 'active');
+    addActiveToBackground.classList.add('class','active');
+}
+
+// Makes our modal and the modal background disappear by removing active from class
+const hideModal = () => {
+    let removeActiveModal = document.querySelector('.pokedexEntryContainer');
+    let removeActiveBackground = document.querySelector('.backgroundModal');
+    
+    removeActiveModal.classList.remove('class', 'active');
+    removeActiveBackground.classList.remove('class', 'active');
+}
+
 const pokemonModalDetails = (e) => {
     let modalInfo = document.getElementById('modalBody');
     let bodyInfo = document.createElement('div');
@@ -94,6 +112,9 @@ const pokemonModalDetails = (e) => {
     
     modalInfo.innerHTML = '';
 
+    revealModal(); // calls out modal to activate
+
+    // generates our modal information based on pokemon selected 
     bodyInfo.innerHTML = 
     `<img class="spriteAlign" src="${pokemonInfoNeeded.sprite}">
      </div>
@@ -112,7 +133,6 @@ const pokemonModalDetails = (e) => {
     modalInfo.appendChild(bodyInfo);
 }
 
-
 // loads the next page or pokemon
  const nextPageOfPokes = async () => {
     startingPosition += 12;
@@ -125,10 +145,10 @@ const pokemonModalDetails = (e) => {
     paginationOfList(startingPosition);
 }
 
-
 revealPokeDetails.addEventListener('click', pokemonModalDetails);
 nextBtn.addEventListener('click', nextPageOfPokes);
 prevBtn.addEventListener('click', prevPageOfPokes);
+closeModalBtn.addEventListener('click', hideModal);
 paginationOfList(startingPosition);
 console.log(pokemansList);
 

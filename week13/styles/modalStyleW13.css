@@ -1,4 +1,4 @@
-.pokedexEntryContainer { /*modal*/
+.pokedexEntryContainer { 
     position: fixed;
     top: 50%;
     left: 50%;
@@ -6,28 +6,29 @@
     border: 1px;
     border-radius: 20px;
     border-color: #0000;
-    background-color: #FFFF; /*Color of modal when it opens*/  
-    transform: translate(-50%, -50%) scale(0); /*How we ceneter our modal in the screen*/
-    transition: 200ms ease-in-out;
+    background-color: #FFFF; 
+    transform: translate(-50%, -50%) scale(0); 
+    transition: 100ms ease-in-out;
     z-index: 10;
 }
 
-.pokedexEntryContainer.active { /*when our modal open because of our click event*/
+.pokedexEntryContainer.active { 
     transform: translate(-50%, -50%) scale(1);
 }
 
-.pokedexEntryHeader { /*modal header or pokedex entry*/
+.pokedexEntryHeader {
     margin: 5px;
     padding: 5px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 1px solid black;/*adds a underline to seperate header from details*/
+    border-bottom: 1px solid black;
 }
 
 .modalBody {
     margin: 20px;
 }
+
 .spriteAlign {
     display: block;
     margin-left: auto;
@@ -48,19 +49,19 @@
     background-image: linear-gradient(to right,#23AFCC, #E13620);
 }
 
-#backgroundModal { /*background or aka overaly that makes it darker*/
+.backgroundModal { 
     position: fixed;
-    opacity: 0; /*makes the background not visible until active*/
+    opacity: 0; 
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    transition: 200ms ease-in-out;
+    transition: 100ms ease-in-out;
     background-color: rgba( 0, 0, 0, 0.8);
-    pointer-events: none; /*prevents the user from clicking any other elements*/
+    pointer-events: none; 
 }
 
-#backgroundModal.active { /*this allows us to toggle in and out*/
+.backgroundModal.active { 
     opacity: 1;
-    pointer-events: none;
+    pointer-events: all;
 }
