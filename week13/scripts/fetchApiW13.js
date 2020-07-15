@@ -76,7 +76,7 @@ const paginationOfList = async () => {
         // pokes.setAttribute('type', 'button');
         // Creating HTML and pokemon info
         pokes.innerHTML = `
-        <img src="${pokemansList[i].sprite}">
+        <img class="PokeSpritesCss"src="${pokemansList[i].sprite}">
         <h1 class="PokeName">${pokemansList[i].number}.` + " " + `${pokemansList[i].name}</h1>
         <p class="PokeTypes">Type: ${pokemansList[i].types}</p>`;
         pokedexList.appendChild(pokes);
@@ -88,9 +88,9 @@ const pokemonModalDetails = (e) => {
     let bodyInfo = document.createElement('div');
     // Creating HTML and pokemon info
     // want to pull out the id for selected
-    let selectedPokemon = e.target.id; 
-    
-    let pokemonInfoNeeded = pokemansList.find(li => li.id !== selectedPokemon);
+    let pokemonId = parseInt(e.target.id); 
+    console.log(e);
+    let pokemonInfoNeeded = pokemansList.find(li => li.id === pokemonId);
     
     modalInfo.innerHTML = '';
 
