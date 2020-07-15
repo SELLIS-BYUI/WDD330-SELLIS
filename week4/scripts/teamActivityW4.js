@@ -1,22 +1,22 @@
 const controlBoard = document.querySelector('.gameBoard');
 const newGameBtn = document.querySelector('.newGameBtn');
 
-const firstPlayerActive = "x"
-const secondPlayerActive = "o"
-let player = firstPlayerActive;
+const firstPlayerActive = "x";
+const secondPlayerActive = "o";
+let currentPlayer = firstPlayerActive;
 
 const playerCheck = (e) => {
-    e.target.innerHTML = player;
-    player = (player === secondPlayerActive) ? firstPlayerActive : secondPlayerActive;
+    e.target.innerHTML = currentPlayer;
+    currentPlayer = (currentPlayer === secondPlayerActive) ? firstPlayerActive : secondPlayerActive;
     
 }
 const newGame = () => {
     let i = 0;
     while (i < controlBoard.children.length) {
-        controlBoard.children[i].innerHTML = "";
+        controlBoard.children[i].innerHTML = '';
         i++;
     }
-    player = firstPlayerActive;
+    currentPlayer = firstPlayerActive;
   }
 
 newGameBtn.addEventListener('click', newGame);

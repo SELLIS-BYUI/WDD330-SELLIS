@@ -10,5 +10,15 @@ export class Pokemon { // For pokemon charcteristics and appearence
         this.eggGroup = eggGroup;
         this.pokemonText = pokemonText;
         this.pokeSpeciesDetail = pokeSpeciesDetail;
+        this.isLiked = false;
+    }
+
+    get getIsLiked() {
+        return this.isLiked;
+    }
+    
+    set setIsLiked(isLiked) {
+        this.isLiked = isLiked;
     }
 }
+

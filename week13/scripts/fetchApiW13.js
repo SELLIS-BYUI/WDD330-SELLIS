@@ -2,7 +2,7 @@ import { Pokemon } from './pokeClassesW13.js';
 /* Storing the pokemon characteristics and flavor text into objects. Then 
 storing into an array making it an array of objects. */
 let pokemansList = [];
-
+let favLocalStorage = [];
 // So that we have a way to paginate
 let page = 0;
 let startingPosition = 1;
@@ -10,11 +10,12 @@ const prevBtn = document.querySelector('#previousBtn');
 const nextBtn = document.querySelector('#nextBtn');
 const revealPokeDetails = document.querySelector('#pokedexList');
 const closeModalBtn = document.querySelector('#closeBtn');
+const favBtnLocalStorage = document.querySelector('#favBtn');
 
 const getJsonPokemonData = (startingPosition) => {
     pokemansList = [];
     // Getting all pokemon and pokemonData currently known
-    for (let i = startingPosition, j = 0; i < startingPosition + 12; i++, j++) {
+    for (let i = startingPosition, j = 0; i < startingPosition + 9; i++, j++) {
         /* URLS, one for getting all pokemon with name, id, sprite
         and the second for getting pokemon flavor/descript info and the
         game their from */
@@ -57,11 +58,11 @@ const getJsonPokemonData = (startingPosition) => {
     return new Promise(fetch => {
         setTimeout(() => {
            fetch('fetched');
-        }, 2500);
+        }, 1800);
    }); 
 }
 
-// Will allow have 15 per a page
+// Will allow have 9 per a page
 const paginationOfList = async () => {
     await getJsonPokemonData(startingPosition);
     let pokedexList = document.getElementById("pokedexList");
@@ -69,11 +70,11 @@ const paginationOfList = async () => {
     // Reseting
     pokedexList.innerHTML = '';
 
-    for (var i = 0, j = 0; i < page + 12; i++, j++) {
-        let pokes = document.createElement("LI");
+    for (var i = 0, j = 0; i < page + 9; i++, j++) {
+        let pokes = document.createElement("li");
         pokes.setAttribute('id', `${[j]}`);
         pokes.setAttribute('class', 'stylePokemonListItem');
-        // pokes.setAttribute('type', 'button');
+       
         // Creating HTML and pokemon info
         pokes.innerHTML = `
         <img class="PokeSpritesCss"src="${pokemansList[i].sprite}">
@@ -102,12 +103,13 @@ const hideModal = () => {
 }
 
 const pokemonModalDetails = (e) => {
+    console.log(e.target);
     let modalInfo = document.getElementById('modalBody');
     let bodyInfo = document.createElement('div');
     // Creating HTML and pokemon info
     // want to pull out the id for selected
     let pokemonId = parseInt(e.target.id); 
-    console.log(e);
+    // console.log(e);
     let pokemonInfoNeeded = pokemansList.find(li => li.id === pokemonId);
     
     modalInfo.innerHTML = '';
@@ -118,6 +120,8 @@ const pokemonModalDetails = (e) => {
     bodyInfo.innerHTML = 
     `<img class="spriteAlign" src="${pokemonInfoNeeded.sprite}">
      </div>
+     <p class="pokeId" hidden>${pokemonInfoNeeded.number}</p> 
+     <p class="pokeNumber" hidden>${pokemonInfoNeeded.id}</p>
      <h1 class="pokeName">Pokemon: ${pokemonInfoNeeded.name}</h1>
      <p class="pokeSpecies">Species: The ${pokemonInfoNeeded.pokeSpeciesDetail}</p>
      <p class="pokeTypes"> Detail: A ${pokemonInfoNeeded.types} type</p>
@@ -135,21 +139,42 @@ const pokemonModalDetails = (e) => {
 
 // loads the next page or pokemon
  const nextPageOfPokes = async () => {
-    startingPosition += 12;
+    startingPosition += 9;
     paginationOfList(startingPosition);
 }
 
 // loads the previous page of pokemon
  const prevPageOfPokes = async () => {
-    startingPosition -= 12;
+    startingPosition -= 9;
     paginationOfList(startingPosition);
+}
+
+const favoriteBtn = () => {
+    var spriteData = document.getElementsByClassName("spriteAlign")[0].src;
+    var pokemanId = document.getElementsByClassName("pokeId")[0].innerHTML;
+    var pokemanNumber = document.getElementsByClassName("pokeNumber")[0].innerHTML;
+    var pokemanName = document.getElementsByClassName("pokeName")[0].innerHTML;
+    var pokemanSpecies = document.getElementsByClassName("pokeSpecies")[0].innerHTML;
+    var pokemanTypes = document.getElementsByClassName("pokeTypes")[0].innerHTML;
+    var pokemanText = document.getElementsByClassName("pokeText")[0].innerHTML;
+    var pokemanGroup = document.getElementsByClassName("pokeGroup")[0].innerHTML;
+    var pokemanCapRate = document.getElementsByClassName("captureRate")[0].innerHTML;
+    
+    let pokemon = new Pokemon(pokemanName, pokemanId, pokemanNumber, spriteData, pokemanTypes,
+        pokemanCapRate, pokemanGroup, pokemanText, pokemanSpecies);
+
+    pokemon.setIsLiked = true;
+
+    localStorage.setItem(pokemanName, JSON.stringify(pokemon));
+    console.log(JSON.parse(localStorage.getItem(pokemanName)));
 }
 
 revealPokeDetails.addEventListener('click', pokemonModalDetails);
 nextBtn.addEventListener('click', nextPageOfPokes);
 prevBtn.addEventListener('click', prevPageOfPokes);
 closeModalBtn.addEventListener('click', hideModal);
+favBtnLocalStorage.addEventListener('click', favoriteBtn);
 paginationOfList(startingPosition);
-console.log(pokemansList);
+// console.log(pokemansList);
 
 
