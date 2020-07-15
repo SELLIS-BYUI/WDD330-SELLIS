@@ -97,10 +97,10 @@ const pokemonModalDetails = (e) => {
     bodyInfo.innerHTML = 
     `<img class="spriteAlign" src="${pokemonInfoNeeded.sprite}">
      </div>
-     <h1 class="pokeName">Pokemon Info: ${pokemonInfoNeeded.number}.${pokemonInfoNeeded.name}</h1>
-     <p class="pokeTypes">Types: ${pokemonInfoNeeded.types}</p>
+     <h1 class="pokeName">Pokemon: ${pokemonInfoNeeded.name}</h1>
+     <p class="pokeSpecies">Species: the ${pokemonInfoNeeded.pokeSpeciesDetail}</p>
+     <p class="pokeTypes"> Detail: a ${pokemonInfoNeeded.types} type</p>
      <p class="pokeText">Description: ${pokemonInfoNeeded.pokemonText}</p>
-     <p class="pokeSpecies">Species: ${pokemonInfoNeeded.pokeSpeciesDetail}</p>
      <p class="pokeGroup">Egg group: ${pokemonInfoNeeded.eggGroup}</p>
      <p class="captureRate">Capture rate: ${pokemonInfoNeeded.captureRate}</p>
      </div>`

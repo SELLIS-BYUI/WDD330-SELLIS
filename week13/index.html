@@ -36,14 +36,17 @@
 <div id="stylePokemanList">
     <ol id="pokedexList"></ol>
 </div>
-<div class="pokedexEntryContainer" id="pokedexEntryContainer">
-  <div class="pokedexEntryHeader">
-    <div class="modal-title">Pokedex Entry: </div>
-    <button  id="closeBtn">x</button>
+
+<div class="pokedexEntryContainer active" id="pokedexEntryContainer"><!--modal-->
+  <div class="pokedexEntryHeader"><!--modal-header-->
+    <button  id="favBtn">FAV</button>
+    <div class="modal-title">POKEDEX ENTRY </div>
+    <button  id="closeBtn">CLOSE</button>
 </div>
 <div id="modalBody" class="modalBody"></div>
 </div>   
-<div id="backgroundModal"></div>
+<div id="backgroundModal" class="active"></div><!--overlay-->
+
 <div id="btnContainer">
   <button id="previousBtn"> PREV</button>
   <button id="favoritesFilterBtn">FAV</button>

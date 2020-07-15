@@ -1,4 +1,4 @@
-.pokedexEntryContainer {
+.pokedexEntryContainer { /*modal*/
     position: fixed;
     top: 50%;
     left: 50%;
@@ -6,23 +6,28 @@
     border: 1px;
     border-radius: 20px;
     border-color: #0000;
-    background-color: #FFFF;   
-    transform: translate(-50%, -50%) scale(0);;
+    background-color: #FFFF; /*Color of modal when it opens*/  
+    transform: translate(-50%, -50%) scale(0); /*How we ceneter our modal in the screen*/
     transition: 200ms ease-in-out;
+    z-index: 10;
 }
 
-.pokedexEntryContainer.active {
+.pokedexEntryContainer.active { /*when our modal open because of our click event*/
     transform: translate(-50%, -50%) scale(1);
 }
 
-.pokeDexEntryHeader {
+.pokedexEntryHeader { /*modal header or pokedex entry*/
     margin: 5px;
     padding: 5px;
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid black;/*adds a underline to seperate header from details*/
 }
 
+.modalBody {
+    margin: 20px;
+}
 .spriteAlign {
     display: block;
     margin-left: auto;
@@ -30,11 +35,12 @@
     width: 40%;
 }
 
-.pokedexEntryHeader #favStorageBtn, #closeBtn{
+.pokedexEntryHeader #favStorageBtn, #closeBtn, #favBtn {
     border: none;
     border-radius: 60px;
-    padding: 5px;
-    margin-right: 5px;
+    padding: 8px;
+    margin-bottom: 5px;
+    width: 65px;
     color: white;
     outline: none;
     font-size:10px;
@@ -42,19 +48,19 @@
     background-image: linear-gradient(to right,#23AFCC, #E13620);
 }
 
-#backgroundModal {
+#backgroundModal { /*background or aka overaly that makes it darker*/
     position: fixed;
-    opacity: 0;
+    opacity: 0; /*makes the background not visible until active*/
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
     transition: 200ms ease-in-out;
-    background-color: rgba( 0, 0, 0, 0.7);
-    pointer-events: none;
+    background-color: rgba( 0, 0, 0, 0.8);
+    pointer-events: none; /*prevents the user from clicking any other elements*/
 }
 
-#backgroundModal.active {
+#backgroundModal.active { /*this allows us to toggle in and out*/
     opacity: 1;
-    pointer-events: all;
+    pointer-events: none;
 }
