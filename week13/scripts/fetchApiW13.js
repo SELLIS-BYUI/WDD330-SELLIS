@@ -166,6 +166,7 @@ const favoriteBtn = () => {
 
     localStorage.setItem(pokemanName, JSON.stringify(pokemon));
     console.log(JSON.parse(localStorage.getItem(pokemanName)));
+    alert("Pokemon Add!");
 }
 
 
