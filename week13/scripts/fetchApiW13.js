@@ -149,6 +149,7 @@ const pokemonModalDetails = (e) => {
 }
 
 const favoriteBtn = () => {
+    // getting the data from the modal of the pokemon you liked is added to localStorage
     let spriteData = document.getElementsByClassName("spriteAlign")[0].src;
     let pokemanId = document.getElementsByClassName("pokeId")[0].innerHTML;
     let pokemanNumber = document.getElementsByClassName("pokeNumber")[0].innerHTML;
@@ -159,6 +160,7 @@ const favoriteBtn = () => {
     let pokemanGroup = document.getElementsByClassName("pokeGroup")[0].innerHTML;
     let pokemanCapRate = document.getElementsByClassName("captureRate")[0].innerHTML;
 
+    // using my class from my pokeClasses
     let pokemon = new Pokemon(pokemanName, pokemanId, pokemanNumber, spriteData, pokemanTypes,
             pokemanCapRate, pokemanGroup, pokemanText, pokemanSpecies);
     
@@ -166,7 +168,7 @@ const favoriteBtn = () => {
 
     localStorage.setItem(pokemanName, JSON.stringify(pokemon));
     console.log(JSON.parse(localStorage.getItem(pokemanName)));
-    alert("Pokemon Add!");
+    alert("Pokemon Added!"); // send alert to user that its been "liked"
 }
 
 
