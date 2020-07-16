@@ -15,11 +15,11 @@ const displayFavPokemon = () => {
         <p class="pokeId" hidden>${favPokemon.id}</p> 
         <p class="pokeNumber" hidden>${favPokemon.number}</p>
         <h1 class="pokeName">Pokemon: ${favPokemon.name}</h1>
-        <p class="pokeSpecies">Species: The ${favPokemon.pokeSpeciesDetail}</p>
-        <p class="pokeTypes"> Detail: A ${favPokemon.types} type</p>
-        <p class="pokeText">Description: ${favPokemon.pokemonText}</p>
-        <p class="pokeGroup">Egg group: ${favPokemon.eggGroup}</p>
-        <p class="captureRate">Capture rate: ${favPokemon.captureRate}</p>
+        <p class="pokeSpecies">${favPokemon.pokeSpeciesDetail}</p>
+        <p class="pokeTypes">${favPokemon.types} type</p>
+        <p class="pokeText">${favPokemon.pokemonText}</p>
+        <p class="pokeGroup">${favPokemon.eggGroup}</p>
+        <p class="captureRate">${favPokemon.captureRate}</p>
         <button class="removeFavPoke" onclick="removePokeFromStorage(\`${favPokemon.name}\`)">REMOVE</button>`;
 
         pokeList.appendChild(createPokeList);
