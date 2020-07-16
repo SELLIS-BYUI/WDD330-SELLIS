@@ -10,6 +10,27 @@
     
 }
 
+.spriteAlign {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 40%;
+}
+
+
+#pokeList {
+    display: grid;
+    grid-column-gap: 8px;
+    grid-row-gap: 15px;
+    grid-template-columns: auto;
+    background-color: #FFFF;
+    padding: 10px;
+    padding-top: 15px;
+    padding-bottom: 10px;
+    margin: 10px;
+    border-radius: 30px;
+}
+
 #pokedexList {
     display: grid;
     grid-column-gap: 8px;
@@ -24,8 +45,11 @@
 #btnContainer {
     display: grid;
     grid-column-gap: 0px;
-    grid-template-columns: 91.5px 91.5px 91.5px 91.5px;
+    grid-template-columns: 91.5px 91.5px 91.5px;
     padding: 0px;
+    text-decoration: none;
+    justify-content: center;
+    align-items: center;
 } 
 
 ol {
@@ -45,7 +69,12 @@ img {
     height: "60";
 }
 
-#previousBtn, #nextBtn, #favoritesFilterBtn, #allFilterBtn {
+a:visited, a:link, a {
+   text-decoration: none;
+   color: white;
+}
+
+#previousBtn, #nextBtn, #favoritesFilterBtn, #allFilterBtn, #returnToPokedex, .removeFavPoke {
     border: none;
     border-radius: 60px;
     padding: 10px;
@@ -55,6 +84,7 @@ img {
     outline: none;
     background-color: #E13620;
     background-image: linear-gradient(to right,#23AFCC, #E13620);
+
 }
 
 footer{

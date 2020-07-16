@@ -2,7 +2,7 @@ import { Pokemon } from './pokeClassesW13.js';
 /* Storing the pokemon characteristics and flavor text into objects. Then 
 storing into an array making it an array of objects. */
 let pokemansList = [];
-let favLocalStorage = [];
+
 // So that we have a way to paginate
 let page = 0;
 let startingPosition = 1;
@@ -11,6 +11,7 @@ const nextBtn = document.querySelector('#nextBtn');
 const revealPokeDetails = document.querySelector('#pokedexList');
 const closeModalBtn = document.querySelector('#closeBtn');
 const favBtnLocalStorage = document.querySelector('#favBtn');
+// const favPokemonModal = document.querySelector('#allFilterBtn');
 
 const getJsonPokemonData = (startingPosition) => {
     pokemansList = [];
@@ -58,7 +59,7 @@ const getJsonPokemonData = (startingPosition) => {
     return new Promise(fetch => {
         setTimeout(() => {
            fetch('fetched');
-        }, 1800);
+        }, 2200);
    }); 
 }
 
@@ -130,8 +131,6 @@ const pokemonModalDetails = (e) => {
      <p class="captureRate">Capture rate: ${pokemonInfoNeeded.captureRate}</p>
      </div>`
 
-
-
     console.log(pokemonInfoNeeded);
     // console.log(pokemansList);
     modalInfo.appendChild(bodyInfo);
@@ -150,30 +149,32 @@ const pokemonModalDetails = (e) => {
 }
 
 const favoriteBtn = () => {
-    var spriteData = document.getElementsByClassName("spriteAlign")[0].src;
-    var pokemanId = document.getElementsByClassName("pokeId")[0].innerHTML;
-    var pokemanNumber = document.getElementsByClassName("pokeNumber")[0].innerHTML;
-    var pokemanName = document.getElementsByClassName("pokeName")[0].innerHTML;
-    var pokemanSpecies = document.getElementsByClassName("pokeSpecies")[0].innerHTML;
-    var pokemanTypes = document.getElementsByClassName("pokeTypes")[0].innerHTML;
-    var pokemanText = document.getElementsByClassName("pokeText")[0].innerHTML;
-    var pokemanGroup = document.getElementsByClassName("pokeGroup")[0].innerHTML;
-    var pokemanCapRate = document.getElementsByClassName("captureRate")[0].innerHTML;
-    
-    let pokemon = new Pokemon(pokemanName, pokemanId, pokemanNumber, spriteData, pokemanTypes,
-        pokemanCapRate, pokemanGroup, pokemanText, pokemanSpecies);
+    let spriteData = document.getElementsByClassName("spriteAlign")[0].src;
+    let pokemanId = document.getElementsByClassName("pokeId")[0].innerHTML;
+    let pokemanNumber = document.getElementsByClassName("pokeNumber")[0].innerHTML;
+    let pokemanName = document.getElementsByClassName("pokeName")[0].innerHTML;
+    let pokemanSpecies = document.getElementsByClassName("pokeSpecies")[0].innerHTML;
+    let pokemanTypes = document.getElementsByClassName("pokeTypes")[0].innerHTML;
+    let pokemanText = document.getElementsByClassName("pokeText")[0].innerHTML;
+    let pokemanGroup = document.getElementsByClassName("pokeGroup")[0].innerHTML;
+    let pokemanCapRate = document.getElementsByClassName("captureRate")[0].innerHTML;
 
+    let pokemon = new Pokemon(pokemanName, pokemanId, pokemanNumber, spriteData, pokemanTypes,
+            pokemanCapRate, pokemanGroup, pokemanText, pokemanSpecies);
+    
     pokemon.setIsLiked = true;
 
     localStorage.setItem(pokemanName, JSON.stringify(pokemon));
     console.log(JSON.parse(localStorage.getItem(pokemanName)));
 }
 
+
 revealPokeDetails.addEventListener('click', pokemonModalDetails);
 nextBtn.addEventListener('click', nextPageOfPokes);
 prevBtn.addEventListener('click', prevPageOfPokes);
 closeModalBtn.addEventListener('click', hideModal);
 favBtnLocalStorage.addEventListener('click', favoriteBtn);
+// favPokemonModal.addEventListener('click', favListModal);
 paginationOfList(startingPosition);
 // console.log(pokemansList);
 
