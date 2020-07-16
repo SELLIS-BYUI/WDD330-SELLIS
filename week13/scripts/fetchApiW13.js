@@ -59,7 +59,7 @@ const getJsonPokemonData = (startingPosition) => {
     return new Promise(fetch => {
         setTimeout(() => {
            fetch('fetched');
-        }, 2200);
+        }, 3000);
    }); 
 }
 
