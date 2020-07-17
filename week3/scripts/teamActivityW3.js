@@ -65,46 +65,51 @@
 
       // Array.prototype.filter()
       // 1. Filter the list of inventors for those who were born in the 1500's
-      const inventorsYearOfBirth = inventors.filter(function(personSearch) {
-        if ((personSearch.year >= '1500') && (personSearch.year <= '1600')){
-            return true;
-        }
-      });
-      console.table(inventorsYearOfBirth);
+      const checkInventorsYearOfBirth = (personAge) => {
+        if ((personAge.year >= '1500') && (personAge.year <= '1600')) 
+        return true;
+      }
+      const searchListForAge = inventors.filter(checkInventorsYearOfBirth);
+      console.table(searchListForAge);
       // Array.prototype.map()
       // 2. Give us an array of the inventors' first and last names
-      const inventorsFullName = inventors.map(function(personName) {
-        let personFN = [personName.first];
-        let personLN = [personName.last];
-        let personFullName = personFN + " " + personLN;
+      const checkInventorsFullName = (personName) => {
+        const personFirstName = [personName.first];
+        const personLastName = [personName.last];
+        const personFullName =  personFirstName.concat(personLastName);
         return personFullName;
-      });
-      console.table(inventorsFullName);
+      }
+      const searchListForName = inventors.map(checkInventorsFullName);
+      console.table(searchListForName);
       // Array.prototype.sort()
       // 3. Sort the inventors by birthdate, oldest to youngest
-      const inventorsBDays = inventors.sort(function(a, b) {
-       let sortedBDay = b.year - a.year;
-       return sortedBDay;
-      }); 
+      const checkOrderOfBDays = (bDayStart, bDayEnd) => {
+        const orderBDays = (bDayStart.year > bDayEnd.year) ? 1 : -1; 
+        return orderBDays;
+      }
+      const inventorsBDays = inventors.sort(checkOrderOfBDays);
       console.table(inventorsBDays);
       // Array.prototype.reduce()
       // 4. How many years did all the inventors live?
-      const inventorsTimeline = inventors.reduce(function(personLife, person) {
-        let personBirthDate = person.year;
-        let personDeathDate = person.passed;
-        return personLife + (personDeathDate - personBirthDate);
-      }, 0);
-      console.log(inventorsTimeline);
+      const checkLifeSpan = (totalLife, person) => {
+        let inventorsLives = totalLife;
+        const personsBirth = person.year;
+        const personDeath = person.passed;
+        return inventorsLives + (personDeath - personsBirth);
+      }
+      const inventorsLife = inventors.reduce(checkLifeSpan, 0);
+      console.table(inventorsLife);
+      // console.log(inventorsTimeline);
       // 5. Sort the inventors by years lived
-      const inventorTimeLine = inventors.sort(function(personB, personD) {
-        let personsBirth = personB.year - personB.passed;
-        let personsDeath = personD.year - personD.passed;
-        if(personsBirth < personsDeath) {
-          return -1
-        }
-        return 1
-      });
-      console.table(inventorTimeLine);
+      const sortingTimeline = (personS, personL) => {
+        let personStart = personS.year - personS.passed;
+        let personLast = personL.year - personL.passed;
+        const sortedTimeline = (personStart < personLast) ? -1 : 1;
+        return sortedTimeline;
+      }
+      const inventorsTimeline = inventors.sort(sortingTimeline);
+      console.table(inventorsTimeline);
+      // console.table(inventorTimeLine);
       // 6. create a list of Boulevards in Paris that contain 'de' anywhere in the name
       // https://en.wikipedia.org/wiki/Category:Boulevards_in_Paris
       // goto the link above and open the console. Paste the following two lines in.  That will create a list of links in memory that you can reference through the console. Use that list to finish the problem.
