@@ -1,51 +1,49 @@
+.hikeGrid {
+  display: grid;
+  grid-row-gap: 10px;
+  align-items: center;
+
+}
+
 body {
   margin: 0;
   padding: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
-    Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family: sans-serif;
 }
 main > h1 {
   text-align: center;
   background-color: indianred;
-  padding: 1em;
-  margin-top: 0;
-  margin-bottom: -0.5em;
+  padding: 30px;
 }
-img {
-  max-width: 100%;
-}
-.hidden {
-  display: none;
-}
-.hikeStyles {
+
+.gridChild {
   padding: 0;
-  margin: 1em 0;
+  margin: 1px;
   list-style-type: none;
 }
-.hikeStyles div {
+.gridChild div {
   padding: 0 0.5em;
 }
-.hikeStyles li > h2 {
+.gridChild > h2 {
   text-align: center;
   background-color: burlywood;
-  margin-bottom: 0.5em;
+  text-decoration: none;
 }
 
-.light {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-}
-.light > h2 {
-  width: 100%;
-  flex: 1 0 auto;
+#buttonGrid {
+  display: grid;
+  grid-template-columns: 150px;
+  grid-template-rows: 50px;
+  grid-column-gap: 5px;
+  justify-content: center;
 }
 
-.light > div {
-  width: 40%;
-  margin-left: 1em;
-  flex: 1 1 auto;
-}
-.light h3 {
-  margin-bottom: -0.5em;
+.newGameBtn, .notesLink, .linkStyling {
+  text-decoration: none;
+  border: none;
+  border-radius: 60px;
+  color: white;
+  outline: none;
+  background-color: #E13620;
+  background-image: linear-gradient(to right,#23AFCC, #E13620);
 }

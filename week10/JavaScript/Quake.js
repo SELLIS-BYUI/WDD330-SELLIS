@@ -14,7 +14,7 @@ export default class Quake {
     const extendUrlOne = `&starttime=2019-01-01&endtime=2019-03-02&latitude=${position.lat}`;
     const extendUrlTwo = `&longitude=${position.lon}&maxradiuskm=${radius}`;
 
-    this._quakes = getJsonUrl(this.baseUrl + extendUrlOne + extendUrlTwo);
+    this._quakes = getJsonUrl(this.baseUrl.concat(extendUrlOne, extendUrlTwo));
 
     return this._quakes;
   }

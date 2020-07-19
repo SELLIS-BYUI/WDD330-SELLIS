@@ -4,8 +4,6 @@ export default class QuakesView {
         append the list to listElement. You should also add the id of the quake record 
         as a data- property to the li. ie. <li data-id=""> */
         listElement.innerHTML = quakeList.features.map(quake => { 
-            const quakeData = quake.properties.title;
-            const quakeDateTime = new Date(quake.properties.time);
             return `<li data-id="">${quakeData}</li>,${quakeDateTime}<br><br>`;
         }).join('');
     }

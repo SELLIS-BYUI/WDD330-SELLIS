@@ -22,4 +22,22 @@
      text-align: center;
  }
 
+ #buttonGrid {
+    display: grid;
+    grid-template-columns: 150px;
+    grid-template-rows: 50px;
+    grid-column-gap: 5px;
+    justify-content: center;
+}
+
+.newGameBtn, .notesLink, .linkStyling {
+    text-decoration: none;
+    border: none;
+    border-radius: 60px;
+    color: white;
+    outline: none;
+    background-color: #E13620;
+    background-image: linear-gradient(to right,#23AFCC, #E13620);
+}
+
 
